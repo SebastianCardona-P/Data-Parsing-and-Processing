@@ -52,11 +52,11 @@ The `data014_big.csv` file contains the following columns:
 
 | Column                 | Description                                   | Data Type | Notes/Relationships                                            |
 |------------------------|-----------------------------------------------|-----------|----------------------------------------------------------------|
-| `ID_Paciente`          | Unique patient ID                             | String    | Duplicates detected (e.g., 'a84711fe')                         |
+| `ID_Paciente`          | Unique patient ID                             | String    | Duplicates detected (e.g., 'dab5fa66')                         |
 | `Nombre`               | Full name                                     | String    | Not analyzed quantitatively                                    |
 | `Género`               | Gender (M/F)                                  | String    | 50% M, 50% F                                                   |
 | `Edad`                 | Age in years                                  | Integer   | Range: 15-100                                                  |
-| `Peso (kg)`            | Weight                                        | Float     | Range: 10-181 kg                                               |
+| `Peso (kg)`            | Weight                                        | Float     | Range: 10-189 kg                                               |
 | `Altura (cm)`          | Height                                        | Integer   | Range: 140-200 cm                                              |
 | `IMC`                  | Body Mass Index                               | Float     | Range: 4.9-37.9                                                |
 | `Presión Arterial`     | Blood pressure (systolic/diastolic mmHg)      | String    | Parsed into `Systolic` and `Diastolic`                         |
@@ -128,7 +128,7 @@ Because the age distribution is normal, the elderly population is more precariou
 
 #### **9. Consultations by Month (`consultations_by_month.png`)**
 ![consultations_by_month.png](img/consultations_by_month.png)
-- **Analysis:** Line plot of consultation counts by month. Shows a spike in 2025-04, possibly due to data collection bias or seasonal illness patterns. On average, 42,000 consultations were carried out per month.
+- **Analysis:** Line plot of consultation counts by month. Shows a spike in 2025-04, possibly due to data collection bias or seasonal illness patterns. On average, 420,000 consultations were carried out per month.
 - **Good:** Identifies temporal trends.
 - **Bad:** Limited time range (2023-04 to 2025-04) restricts seasonal analysis.
 

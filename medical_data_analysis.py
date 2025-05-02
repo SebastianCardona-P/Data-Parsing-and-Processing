@@ -155,7 +155,7 @@ def clean_and_validate_data(df):
         & (df["Peso (kg)"].between(10, 200, inclusive="both"))
         & (df["Altura (cm)"].between(50, 250, inclusive="both"))
         & (df["IMC"].between(5, 60, inclusive="both"))
-        ]
+    ]
 
     return df, errors
 
@@ -581,7 +581,7 @@ def plot_gender_distribution(df, figsize=(8, 8)):
     plt.close()
 
 
-def main(file_path="data014_medium.csv"):
+def main(file_path="data014_big.csv"):
     """Run analysis and generate visualizations."""
     try:
         # Initialize accumulators for visualizations that need full data
@@ -603,7 +603,9 @@ def main(file_path="data014_medium.csv"):
         print("Processing data in chunks...")
 
         # Process the CSV in chunks
-        for chunk in pd.read_csv(file_path, encoding="utf-8", chunksize=chunksize, dtype=DTYPES):
+        for chunk in pd.read_csv(
+            file_path, encoding="utf-8", chunksize=chunksize, dtype=DTYPES
+        ):
             # Clean and validate each chunk
             df_clean, errors = clean_and_validate_data(chunk)
             total_records += len(df_clean)
@@ -625,13 +627,14 @@ def main(file_path="data014_medium.csv"):
             if not df_clean["Fecha Consulta"].isna().all():
                 chunk_min_date = df_clean["Fecha Consulta"].min()
                 chunk_max_date = df_clean["Fecha Consulta"].max()
-                if min_date is None or (chunk_min_date is not pd.NaT and chunk_min_date < min_date):
+                if min_date is None or (
+                    chunk_min_date is not pd.NaT and chunk_min_date < min_date
+                ):
                     min_date = chunk_min_date
-                if max_date is None or (chunk_max_date is not pd.NaT and chunk_max_date > max_date):
+                if max_date is None or (
+                    chunk_max_date is not pd.NaT and chunk_max_date > max_date
+                ):
                     max_date = chunk_max_date
-
-
-
 
         if not all_dfs:
             print("No valid data after cleaning. Check errors:")
